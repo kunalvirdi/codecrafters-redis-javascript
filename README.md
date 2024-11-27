@@ -4,49 +4,60 @@
 
 This project is a custom implementation of Redis, built from scratch as part of a **Code Crafters challenge**. It demonstrates deep insights into how Redis operates internally and offers several core functionalities.  
 
-## Features
+### Core Functionalities  
+1. **RESP Parser**  
+   - Implements the Redis Serialization Protocol (RESP) to handle structured communication between the client and server.  
+   - Supports parsing of Redis commands and responding with appropriate data types, ensuring seamless command execution.  
 
-### Core Functionalities
-1. **RESP Parser**
-    - Implements the Redis Serialization Protocol for client-server communication.
+2. **RDB File Parser**  
+   - Parses existing Redis database (RDB) files for restoring data into memory.  
+   - Handles the deserialization of complex data structures, enabling efficient persistence and recovery of data.  
 
-2. **RDB File Parser**
-    - Parses Redis database (RDB) files for persistent storage.
+3. **Basic Commands**  
+   - Supports `GET` and `SET` operations to store and retrieve key-value pairs.  
+   - Implements expiration handling to automatically remove keys after a set time.  
+   - Includes the `WAIT` command for ensuring replication to a specified number of slaves.  
+   - Provides stream operations like `XADD` for adding entries to a stream and `XRANGE` for retrieving a range of stream entries, with blocking support for advanced use cases.  
 
-3. **Basic Commands**
-    - Supports `GET` and `SET` operations with expiration handling with `px` flag.
-    - Implements the `WAIT` command.
-    - Provides support for stream operations like `XADD` and `XRANGE` (with blocking support). Id generation and validation as well.
+4. **Transactions**  
+   - Supports atomic execution of multiple commands using `MULTI` and `EXEC`.  
+   - Allows rollback of commands using the `DISCARD` command in case of errors or changes in requirements.  
+   - Implements `INCR` for atomic increment operations on numeric keys.  
 
-4. **Transactions**
-    - Includes commands like `INCR`, `MULTI`, and `DISCARD` to enable transactional support.
+5. **Persistence**  
+   - Supports saving in-memory data to disk using RDB file persistence.  
+   - Ensures data durability and recovery during restarts or unexpected failures by periodically saving snapshots of the dataset.  
 
-5. **Persistence**
-    - Implements persistent storage using RDB file parsing.
+6. **Master-Slave Replication**  
+   - Establishes replication with handshaking mechanisms for initial synchronization between master and slave instances.  
+   - Propagates commands from the master to the slave in real time, ensuring data consistency.  
+   - Enables communication between master and slave for robust fault tolerance and load balancing.  
 
-6. **Master-Slave Replication**
-    - Features handshaking, command propagation, and communication between master and slave instances.  
+## Future Enhancements  
 
-## Future Enhancements
+1. **Load Handling and Scalability**  
+   - Add support for concurrent client connections using worker threads to improve performance under high load.  
+   - Implement a clustering module to distribute the dataset across multiple nodes for horizontal scalability.  
 
-1. **Load Handling and Scalability**
-    - Add support for concurrent connections using worker threads.
-    - Implement a clustering module for load distribution.
+2. **Unit Testing**  
+   - Develop a comprehensive suite of unit tests to ensure the correctness and stability of core functionalities.  
 
-2. **Unit Testing**
-    - Introduce comprehensive unit tests to ensure robustness and reliability.
+3. **Improved Master-Slave Communication**  
+   - Introduce mechanisms for master instances to periodically check the status of slave instances.  
+   - Implement the `REPLCONF ACK` command to synchronize and validate replication configurations.  
 
-3. **Improved Master-Slave Communication**
-    - Enable master instances to regularly check the status of slaves and update them using the `REPLCONF ACK` command.
+4. **Enhanced RDB Functionality**  
+   - Extend functionality to include the conversion of in-memory data into RDB files for backup and sharing.  
 
-4. **Enhanced RDB Functionality**
-    - Extend RDB file handling to include conversion from in-memory data to RDB files.  
+5. **Redis-CLI (Client)**  
+   - Develop a user-friendly command-line interface to allow clients to interact directly with the Redis server.  
+   - Support advanced client features such as history tracking, autocomplete, and multi-command execution.  
 
-5. **Redis-CLI (Client)**
-   - Develop a command-line interface for interacting with the Redis server.
-
-6. **Deployment**
-   - Create scripts or containerized solutions (e.g., Docker) for easy deployment and scalability.
+6. **Deployment**  
+   - Create Docker containerization and orchestration scripts for easy deployment in various environments.  
+   - Provide CI/CD pipelines for automated testing and deployment.  
 
 
-**Test clients file is for testing the reponse from server, I'll add list of all commands later on to provide you with how you can test redis server.**
+## Testing  
+
+The **test clients** are used to verify the responses from the Redis server and ensure its functionalities are working as expected. A detailed list of supported commands and instructions on how to test the server will be added in future updates.  
