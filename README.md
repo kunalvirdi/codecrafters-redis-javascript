@@ -17,13 +17,13 @@ This project is a custom implementation of Redis, built from scratch as part of 
 
 3. **Commands Supported**  
    - Supports `GET` and `SET` operations to store and retrieve key-value pairs.  
-   - Implements expiration handling to automatically remove keys after a set time.  
+   - Implements expiration handling.  
    - Includes the `WAIT` command for ensuring replication to a specified number of slaves.  
    - Provides stream operations like `XADD` for adding entries to a stream and `XRANGE` for retrieving a range of stream entries, with blocking support for advanced use cases.  
 
 4. **Transactions**  
    - Supports atomic execution of multiple commands using `MULTI` and `EXEC`.  
-   - Allows rollback of commands using the `DISCARD` command in case of errors or changes in requirements.  
+   - Allows rollback of commands using the `DISCARD` command in case of changes in transaction. 
    - Implements `INCR` for atomic increment operations on numeric keys.  
 
 5. **Master-Slave Replication**  
