@@ -9,11 +9,13 @@ This project is a custom implementation of Redis, built from scratch as part of 
    - Implements the Redis Serialization Protocol (RESP) to handle structured communication between the client and server.  
    - Supports parsing of Redis commands and responding with appropriate data types, ensuring seamless command execution.  
 
-2. **RDB File Parser**  
+2. **RDB Persistence**  
    - Parses existing Redis database (RDB) files for restoring data into memory.  
-   - Handles the deserialization of complex data structures, enabling efficient persistence and recovery of data.  
+   - Handles the deserialization of complex data structures, enabling efficient persistence and recovery of data.
+   - Supports saving in-memory data to disk using RDB file persistence.  
+   - Ensures data durability and recovery during restarts or unexpected failures by periodically saving snapshots of the dataset.  
 
-3. **Basic Commands**  
+3. **Commands Supported**  
    - Supports `GET` and `SET` operations to store and retrieve key-value pairs.  
    - Implements expiration handling to automatically remove keys after a set time.  
    - Includes the `WAIT` command for ensuring replication to a specified number of slaves.  
@@ -24,11 +26,7 @@ This project is a custom implementation of Redis, built from scratch as part of 
    - Allows rollback of commands using the `DISCARD` command in case of errors or changes in requirements.  
    - Implements `INCR` for atomic increment operations on numeric keys.  
 
-5. **Persistence**  
-   - Supports saving in-memory data to disk using RDB file persistence.  
-   - Ensures data durability and recovery during restarts or unexpected failures by periodically saving snapshots of the dataset.  
-
-6. **Master-Slave Replication**  
+5. **Master-Slave Replication**  
    - Establishes replication with handshaking mechanisms for initial synchronization between master and slave instances.  
    - Propagates commands from the master to the slave in real time, ensuring data consistency.  
    - Enables communication between master and slave for robust fault tolerance and load balancing.  
