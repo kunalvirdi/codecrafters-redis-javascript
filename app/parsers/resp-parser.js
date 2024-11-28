@@ -6,7 +6,7 @@ const {logger} = require("../utilities/Logger");
 
 // For now deserialize only supports for arrays, and bulk string will add other  data types also.
 const deserialize=(encodedData,data=[])=>{
-    if(encodedData.includes('+') && encodedData.toLowerCase().includes("ERR") ) return encodedData
+    if(encodedData.includes('+') && encodedData.toLowerCase().includes("ERR") ) return encodedData.split('\r\n')[0]
     const padding = 4;
     switch (encodedData[0]) {
         case '*':
@@ -23,8 +23,15 @@ const deserialize=(encodedData,data=[])=>{
 }
 
 
-const serialize=(data,returnedArray=false)=>{
+const serialize=(data,returnedArray=false,isError=false)=>{
     //body:[]
+    if(!data) return "$0\r\n"
+    if(Array.isArray(data) && data.flat().length===0) return "*0\r\n"
+    if(isError) return `-ERR ${data}\r\n`
+
+    if(!Array.isArray(data) && Number(data)!==data){
+        data=data.split(' ')
+    }
     // lines from 28-36 kept redundant for some reasons!
     if(!returnedArray && data.length===1){
         let response=[`$${data[0].length}`,...data].join("\r\n");
@@ -42,10 +49,10 @@ const serialize=(data,returnedArray=false)=>{
         if(!returnedArray && body.length===1){
             response.push([`$${body[0].length}`,...body].join("\r\n"));
             return response
-        }else if(!isNaN(body)){
-            response=`:${body}`
-            return response
-        }
+        }//else if(!isNaN(body)){
+        //     response=`:${body}\r\n`
+        //     return response
+        // }
         response.push(`*${body.length}`)
         for(let item of body){
             if(Array.isArray(item)){

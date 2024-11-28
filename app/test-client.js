@@ -3,7 +3,7 @@ const {RequestQueue} = require("./utilities/RequestQueue");
 const {serialize} = require("./parsers/resp-parser");
 
 
-//Test client file is for testing the reponse from server, I'll add list of all commands later on to provide you with how you can test redis server.
+//Test client file is for testing the reponse from server, I'll add list of all commands later on to provide you with how you can tests redis server.
 const requestQueue=new RequestQueue();
 const socket=net.createConnection({host: "localhost", port: 6379},()=>{
 

@@ -175,6 +175,7 @@ class CommonCommandsController{
             // if $ is passed as option it means client will remain in waiting state to get newly added data
             BlockHandler.newData=body.includes('$')
             if(timeout!=='0' && !body.includes('$')){
+                console.log("ICAN'T")
                 setTimeout(()=>{
                     const {isEmpty,response}=this.getXReadData(command);
                     console.log("[DEBUG] Response that will send to client 1 after timeout",response[0])

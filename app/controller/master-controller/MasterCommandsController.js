@@ -129,6 +129,7 @@ class MasterCommandsController extends CommonCommandsController{
                 console.log(response)
                 BlockHandler.client.write(serialize(response,true))
                 BlockHandler.isBlock=false
+                BlockHandler.newData=false
             }
             return !isBulkString?this.client.write(`+${streamId}\r\n`):this.client.write(serialize([streamId]))
 
