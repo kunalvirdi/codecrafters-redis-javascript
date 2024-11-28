@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6a0b3d82-b070-40cd-8d4f-d50e0f44ff78" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/test/resp-parser tests/serialize.test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controller/CommonCommandsController.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/controller/CommonCommandsController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controller/master-controller/MasterCommandsController.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/controller/master-controller/MasterCommandsController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/parsers/resp-parser.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/parsers/resp-parser.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-    </list>
+    <list default="true" id="6a0b3d82-b070-40cd-8d4f-d50e0f44ff78" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -61,11 +53,11 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app" />
       <recent name="$PROJECT_DIR$/test/resp-parser tests" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/app/controller/master-controller" />
       <recent name="$PROJECT_DIR$/app/controller/slave-controller" />
-      <recent name="$PROJECT_DIR$/app/utilities" />
     </key>
   </component>
   <component name="RunManager">
@@ -131,7 +123,7 @@
       <workItem from="1732627972633" duration="3670000" />
       <workItem from="1732642795688" duration="1640000" />
       <workItem from="1732692326510" duration="6281000" />
-      <workItem from="1732790673959" duration="11752000" />
+      <workItem from="1732790673959" duration="12090000" />
     </task>
     <servers />
   </component>
