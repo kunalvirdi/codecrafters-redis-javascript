@@ -25,7 +25,7 @@ const deserialize=(encodedData,data=[])=>{
 
 const serialize=(data,returnedArray=false,isError=false)=>{
     //body:[]
-    if(!data) return "$0\r\n"
+    if(Number(data)!==data && !data) return "$0\r\n"
     if(Array.isArray(data) && data.flat().length===0) return "*0\r\n"
     if(isError) return `-ERR ${data}\r\n`
 
