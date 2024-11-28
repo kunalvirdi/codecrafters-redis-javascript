@@ -1,11 +1,17 @@
 {
-  "name": "@codecrafters/redis",
+  "name": "redis",
   "version": "1.0.0",
   "dependencies": {
     "nodemon": "^3.1.7",
     "winston": "^3.17.0"
   },
   "scripts": {
-    "start": "nodemon app/main.js"
+    "start": "nodemon app/main.js",
+    "test": "nyc mocha app/tests/*"
+  },
+  "devDependencies": {
+    "chai": "^4.5.0",
+    "mocha": "^10.8.2",
+    "nyc": "^17.1.0"
   }
 }
