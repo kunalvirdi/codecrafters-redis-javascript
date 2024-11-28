@@ -49,10 +49,10 @@ const serialize=(data,returnedArray=false,isError=false)=>{
         if(!returnedArray && body.length===1){
             response.push([`$${body[0].length}`,...body].join("\r\n"));
             return response
-        }//else if(!isNaN(body)){
-        //     response=`:${body}\r\n`
-        //     return response
-        // }
+        }else if(!isNaN(body)){
+            response=`:${body}\r\n`
+            return response
+        }
         response.push(`*${body.length}`)
         for(let item of body){
             if(Array.isArray(item)){
